@@ -96,6 +96,48 @@ p{
   padding-top: 40px;
 }
 
+.Personality
+{
+  text-align: center;
+  width: 90%;
+  border: 2px solid #ee6c4d;
+  border-radius: 25px;
+  margin-bottom: 30px;
+  padding: 25px;
+}
+
+.program
+{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:5px 40px;
+}
+
+.programList
+{
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap; /*need to confirm what this does*/
+  list-style-type: none; 
+  padding: 0;
+}
+
+.programItems
+{
+  width: 33.33%; 
+  padding: 50px 40px;
+}
+
+
+.buttonGroup
+{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
 
 button{
     width: 300px;

@@ -32,29 +32,35 @@
             <p style="color: red;">{{ session('error') }}</p>
         @else
             @if(count($programDetails) > 0)
-                <h3>{{ $programDetails[0]->personality->Personality }}</h3>
-                <h4>{{ $programDetails[0]->personality->PersonalityDesc }}</h4>
+            <div class="Personality">
+                <h3 style = "color: #162938;">{{ $programDetails[0]->personality->Personality }}</h3>
+                <h4 style="margin-top: 15px;">{{ $programDetails[0]->personality->PersonalityDesc }}</h4>
+            </div>
 
-                <h4>Recommended Programs</h4>
-                <ul>
+            <div class="program">
+                <h2>Recommended Programs</h2>
+                <ul class = "programList">
                     @foreach($programDetails as $recommendation)
-                        <li>
-                            <h5>{{ $recommendation->ProgramName }}</h5>
-                            <h5>{{ $recommendation->ProgramDesc }}</h5>
+                        <li class = "programItems">
+                            <h4 style = "margin-bottom: 30px; text-align:left;">{{ $recommendation->ProgramName }}</h4>
+                            <h5 style ="text-align:justify">{{ $recommendation->ProgramDesc }}</h5>
                         </li>
                     @endforeach
                 </ul>
+            </div>
             @else
                 <p>No recommendations found.</p>
             @endif
         @endif
 
-        <form method="post" action="{{ route('sendMail') }}">
-            @csrf
-            <button style="margin-bottom: 10px;" type="submit">Send me a copy</button>
-        </form>
+        <div class = "buttonGroup">
+            <form method="post" action="{{ route('sendMail') }}">
+                @csrf
+                <button type="submit">Send me a copy</button>
+            </form><!--use form because need to pass to controller for sending email-->
 
-        <button onclick="nextPage()">Compare Courses</button>
+            <button onclick="nextPage()">Compare Courses</button>   
+        </div>
     </div>
 
     <script>
