@@ -10,4 +10,5 @@
 <body>
     <h2>Home Page</h2>
     <a href="{{route('createMatch')}}">Create a match</a> <br>
+    <a href="{{route('createMatch')}}">Create a program</a> <br>
 </body>

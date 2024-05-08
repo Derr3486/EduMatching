@@ -42,7 +42,7 @@ Route::get("/Login",[Users::class,'loggedin'])->name('user.loggedin');
 Route::get("/Index/Invalid",[Users::class,'fail'])->name('user.fail');
 Route::get("/Logout",[Users::class,'logout'])->name('user.logout');
 
-//save for later reference
+//input data into DB
 Route::get("/home",[PersonalityController::class,'home'])->name('home');
 Route::get("/home/create",[PersonalityController::class,'create'])->name('create');
 Route::post("/home/create",[PersonalityController::class,'store'])->name('store');

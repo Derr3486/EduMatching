@@ -70,6 +70,13 @@ class PersonalityController extends Controller
 
     public function store(Request $request)
     {
+        // $data = $request->validate([
+        //     'Personality'=>'required',
+        //     'PersonalityDesc'=>'required',
+        // ]);
+        // $newPersonality = personality::create($data);
+        // return redirect(route('home'))->with('success', 'Created');
+        
         $data = $request->validate([
             'ProgramName'=>'required',
             'ProgramDesc'=>'required',

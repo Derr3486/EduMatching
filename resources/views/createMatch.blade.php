@@ -17,8 +17,43 @@
         </ul>
         @endif
     </div>
-    <h1>Create a personality</h1>
-    <form method="post" action="{{route('storeMatch')}}">
+    <!-- <h1>Create a personality</h1>
+    <form action ="{{route('store')}}"  method= "post">
+        @csrf
+        <div>
+            <label>Personality</label>
+            <input type="text" name="Personality" placeholder="Personality"/><br>
+            <label>Personality Description</label>
+            <input type="text" name="PersonalityDesc" placeholder="Description"/><br>
+        </div>
+        <div>
+            <input type="submit" value="Create">
+        </div>
+        
+        <a href='/home'>back to home</a>
+    </form> -->
+
+    <!-- <h1>Create a program</h1>
+    <form action ="{{route('store')}}"  method= "post">
+        @csrf
+        <div>
+            <label>Program name</label>
+            <input type="text" name="ProgramName" placeholder="ProgramName"/><br>
+            <label>Program Description</label>
+            <input type="text" name="ProgramDesc" placeholder="ProgramDesc"/><br>
+            <label>Personality ID</label>
+            <input type="text" name="PersonalityID" placeholder="PersonalityID"/><br>
+        </div>
+        <div>
+            <input type="submit" value="Create">
+        </div>
+        
+        <a href='/home'>back to home</a>
+    </form> -->
+
+    
+        <h1>Create a match</h1> 
+        <form method="post" action="{{route('storeMatch')}}">
         @csrf
         @method('post')
         <div>
