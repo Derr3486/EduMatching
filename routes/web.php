@@ -68,6 +68,7 @@ Route::post("/ResultMail",[MatchController::class,'sendMail'])->name('sendMail')
 
 //Admin page
 Route::get("/AdminHome",[Users::class,'AdminHome'])->name('AdminHome');
+Route::get("/AdminManageUsers",[Users::class,'AdminManageUsers'])->name('AdminManageUsers');
 Route::post("/AdminHome/Register",[Users::class,'AdminStore'])->name('admin.store');
 
 //testing

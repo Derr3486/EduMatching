@@ -30,34 +30,38 @@
     <div class = "Content">
         <table>
             <tr>
-                <th>Feedback ID</th>
-                <th>Ratings (1-5)</th>
-                <th>Description</th>
-                <th>Name of user</th>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Action</th>
             </tr>
-            @foreach($feedbacks as $feedback)
+            @foreach($users as $user)
             <tr>
-                <td>{{ $feedback->feedbackID }}</td>
-                <td>{{ $feedback->rating}}</td>
-                <td>{{ $feedback->Description}}</td>
-                <td>{{ $feedback->userID }}</td>
+                <td>{{ $user->userID }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->role }}</td>
+                <td>#</td>
             </tr>
             @endforeach
         </table>
 
-        <!-- <form method="post" action="{{route('admin.store')}}">
-            @csrf
-            <label>Name</label>
-            <input type = "text" name = "name"> <br>
+        <div class="bottom">
+            <form method="post" action="{{route('admin.store')}}">
+                @csrf
+                <label>Name</label>
+                <input type = "text" name = "name"> <br>
 
-            <label>Email</label>
-            <input type = "email" name = "email"><br>
+                <label>Email</label>
+                <input type = "email" name = "email"><br>
 
-            <label>Password</label>
-            <input type = "password" name = "password"><br>
+                <label>Password</label>
+                <input type = "password" name = "password"><br>
 
-            <button type="submit">Submit</button>
-        </form> -->
+                <button type="submit">Submit</button>
+            </form>
+        </div> <!--end division for form-->
     </div>
 
     <script>

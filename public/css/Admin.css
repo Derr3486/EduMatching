@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 100px;
+  padding-left: 35px;
+  padding-right: 50px;
+  background: #ee6c4d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.Logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color:#fff;
+  user-select: none;
+}
+
+.Logo-1{
+  border: 2px solid #293141;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.navigation
+{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation a{
+  position:relative;
+  font-size: 1.1 em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 30px;
+}
+
+p{
+  position:relative;
+  font-size: 1.2em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.navigation a:hover {
+  font-size: 110%;
+  transition: font-size 0.5s; /* Add transition effect for smooth animation */
+}
+
+.navigation .btnLogin-popup{
+  width:130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.13em;
+  color:#fff;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover{
+  background: #fff;
+  color: #162938;
+}
+
+button{
+  width: 300px;
+  height: 50px;
+  margin-top:10px;
+  background: #162938;
+  border: 2px solid #ee6c4d;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color:#fff;
+  font-weight: 500;
+  transition: .5s;
+}
+
+button:hover{
+  background: #fff;
+  color: #162938;
+}
+
+.Content
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #ddd;
+}
+
+/*style for manage user*/
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+label {
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+input {
+    width: 100%;
+    height: 35px;
+    background: #d2cdc7;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+
+
+
+

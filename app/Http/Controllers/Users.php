@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\feedback;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,14 @@ class Users extends Controller
 ////////////Admin//////////////////////////////////////////////////////////////////////////////////////////////////
 public function AdminHome()
 {
-    return view('Admin.AdminHome');
+    $feedbacks = feedback::all();
+    return view('Admin.AdminHome',['feedbacks'=>$feedbacks]);
+}
+
+public function AdminManageUsers()
+{
+    $users = User::all();
+    return view('Admin.AdminManageUsers',['users'=>$users]);
 }
 
 public function AdminStore(Request $request)

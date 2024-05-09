@@ -28,13 +28,13 @@ class MatchController extends Controller
         // Retrieve the first 3 recommendations based on personality and subject
         $recommendations = program_match::where('Personality', $personality)
             ->where('Subject', $subject)
-            ->take(3) // Limit the number of recommendations to 3
+            ->take(3) // 3 recommendations
             ->get();
 
         // If recommendations found, proceed to fetch more details from the 'program' model
         if ($recommendations->isNotEmpty()) 
         {
-            // Initialize an empty array to store program details for each recommendation
+            // Initialize an array to store program details for each recommendation
             $programDetails = [];
 
             // Loop through each recommendation to fetch additional details from the 'program' model
@@ -43,11 +43,20 @@ class MatchController extends Controller
                 // Fetch program details based on the recommendation
                 $programDetail = Program::where('ProgramName', $recommendation->Program)->first();
 
-                // Check if program details are found
-                if ($programDetail) 
+                if ($programDetail) // If program details are found
                 {
                     // Add program details to the array
                     $programDetails[] = $programDetail;
+
+                    //Getting userID and programID
+                    $UserID = auth()->user()->userID;
+                    $programID = $programDetail->ProgramID;
+
+                    //Add program detail into recommendations database
+                    $data['userID'] = $UserID;
+                    $data['ProgramID'] = $programID;
+
+                    $newRecommendation = recommendation::create($data);//saving it to DB
                 }
             }
 
