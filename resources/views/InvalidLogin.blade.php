@@ -27,7 +27,7 @@
                 {{session('error')}}
             @endif
         </h3><br>
-        <form action="/Index" method="GET">
+        <form action="{{route('user.index')}}" method="GET">
             <button type="submit" class="StartTestButton">
                 Login Again
             </button>

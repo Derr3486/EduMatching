@@ -26,42 +26,29 @@
             </form>
         </nav>
     </header>
-
     <div class = "Content">
         <table>
-            <tr>
-                <th>User ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
-            </tr>
-            @foreach($users as $user)
-            <tr>
-                <td>{{ $user->userID }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->role }}</td>
-                <td>#</td>
-            </tr>
-            @endforeach
+            <thead>
+                <tr>
+                    <th>Program Name</th>
+                    <th>Program Description</th>
+                    <th>Personality</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($programs as $program)
+                    <tr>
+                        <td>{{ $program->ProgramName }}</td>
+                        <td>{{ $program->ProgramDesc }}</td>
+                        <td>{{ $program->personality->Personality }}</td>
+                        <td>#</td>
+                        <td>#</td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
-
-        <div class="bottom">
-            <form method="post" action="{{route('admin.store')}}">
-                @csrf
-                <label>Name</label>
-                <input type = "text" name = "name"> <br>
-
-                <label>Email</label>
-                <input type = "email" name = "email"><br>
-
-                <label>Password</label>
-                <input type = "password" name = "password"><br>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div> <!--end division for form-->
     </div>
 
     <script>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\feedback;
+use App\Models\personality;
+use App\Models\program;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +55,18 @@ public function AdminStore(Request $request)
         }
         //redirect to register sucess page
         return redirect(route('user.registered')); 
+    }
+
+    public function AdminManagePrograms()
+    {
+        $programs = program::all();
+        return view('Admin.AdminManagePrograms',['programs'=>$programs]);
+    }
+
+    public function AdminManagePersonalities()
+    {
+        $personalities = personality::all();
+        return view('Admin.AdminManagePersonalities',['personalities'=>$personalities]);
     }
 
 //////////Login-Register controller//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -12,9 +12,14 @@
       <h2 class="Logo">
         <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo">
         EduMatching</h2>
+        @if(Auth::user())
+            <p>Hi, {{auth()->user()->name}}</p>
+        @endif
       <nav class="navigation">
-        <p>Hello {{auth()->user()->name}}</p>
-        <a href="{{route('user.loggedin')}}">Home</a>
+        @if(Auth::user())
+            <a href="{{route('user.loggedin')}}">Home</a>>
+        @endif
+        <a href="{{route('user.index')}}">Home</a>
         <a href="{{route('test1')}}">Start Test</a>
         <a href="{{route('AllProgram')}}">Compare Courses</a>
         <a href="#">Contact</a>

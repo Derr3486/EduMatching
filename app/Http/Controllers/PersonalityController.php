@@ -5,13 +5,51 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\personality;
 use App\Models\program;
+use App\Models\recommendation;
+
+use Illuminate\Support\Facades\Auth;
 
 class PersonalityController extends Controller
 {
     public function test1()
     {
-        return view('Test1');
+        if(Auth::user())
+        {
+            // Get the logged-in user's ID
+            $userID = auth()->user()->userID;
+
+            // Get all recommendations for the logged-in user
+            $recommendations = recommendation::where('userID', $userID)->get();
+
+            // Initialize an array to store program details for each recommendation
+            $programDetails = [];
+
+            foreach ($recommendations as $recommendation) 
+                {
+                    // Fetch program details based on the recommendation
+                    $programDetail = Program::where('ProgramID', $recommendation->ProgramID)->first();
+
+                    if ($programDetail) // If program details are found
+                    {
+                        // Add program details to the array
+                        $programDetails[] = $programDetail;
+                    }
+                }
+
+            // Check if any program details are found
+            if (!empty($programDetails)) 
+            {
+                // Pass the recommendations and program details to the view
+                return view('recommendation', compact('programDetails'));
+            } else {
+            // direct to personality test page if no recommendations found
+                return view('test1');
+            }
+        } else{
+            return view('test1');
+        }
     }
+
 
     public function analyse(Request $request)
     {
