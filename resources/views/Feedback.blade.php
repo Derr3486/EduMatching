@@ -10,26 +10,21 @@
 
 <body>
     <header>
-      <h2 class="Logo">
-        <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo">
-        EduMatching</h2>
-        @if(Auth::user())
+        <h2 class="Logo">
+            <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo">
+            EduMatching</h2>
             <p>Hi, {{auth()->user()->name}}</p>
-        @endif
-      <nav class="navigation">
-        @if(Auth::user())
-            <a href="{{route('user.loggedin')}}">Home</a>>
-        @endif
-        <a href="{{route('user.index')}}">Home</a>
-        <a href="{{route('test1')}}">Start Test</a>
-        <a href="{{route('AllProgram')}}">Compare Courses</a>
-        <a href="#">Contact</a>
-        <form action="{{route('user.logout')}}" method="get">
-            <button type="submit" class="btnLogin-popup">
-                Logout
-            </button>
-        </form>
-      </nav>
+        <nav class="navigation">
+            <a href="{{route('user.loggedin')}}">Home</a>
+            <a href="{{route('test1')}}">Start Test</a>
+            <a href="{{route('AllProgram')}}">Compare Courses</a>
+            <a href="#">Contact</a>
+            <form action="{{route('user.logout')}}" method="get">
+                <button type="submit" class="btnLogin-popup">
+                    Logout
+                </button>
+            </form>
+        </nav>
     </header>
     <div class = "Content">
         <h3>Please leave us a Feedback</h3>
