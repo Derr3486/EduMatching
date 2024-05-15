@@ -50,25 +50,7 @@
         </table>
     </div>
 
-    <script>
-        // function sortTable(columnIndex) {
-        //     const table = document.getElementById("feedbackTable");
-        //     const rows = Array.from(table.rows).slice(1); // Exclude header row
-        //     const isNumeric = columnIndex === 0; // Check if sorting numeric column
-
-        //     rows.sort((a, b) => {
-        //         const aValue = isNumeric ? parseInt(a.cells[columnIndex].innerText) : a.cells[columnIndex].innerText;
-        //         const bValue = isNumeric ? parseInt(b.cells[columnIndex].innerText) : b.cells[columnIndex].innerText;
-        //         return aValue.localeCompare(bValue, undefined, {numeric: isNumeric});
-        //     });
-
-        //     // Clear the table body
-        //     table.querySelector("tbody").innerHTML = "";
-
-        //     // Append sorted rows to the table
-        //     rows.forEach(row => table.querySelector("tbody").appendChild(row));
-        // }
-        
+    <script>        
         //setting margin from the header for content
         window.addEventListener('DOMContentLoaded', () => {
             const headerHeight = document.querySelector('header').offsetHeight;

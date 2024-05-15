@@ -77,7 +77,6 @@
                     <form method="post" action="{{route('user.store')}}">
                         @csrf
                         @method('post')
-                        Name
                         <div class="input-box">
                             <span class="icon">
                                 <ion-icon name="person-outline"></ion-icon>

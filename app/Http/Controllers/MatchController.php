@@ -48,15 +48,18 @@ class MatchController extends Controller
                     // Add program details to the array
                     $programDetails[] = $programDetail;
 
-                    //Getting userID and programID
-                    $UserID = auth()->user()->userID;
-                    $programID = $programDetail->ProgramID;
+                    if(Auth::check())
+                    {
+                        //Getting userID and programID
+                        $UserID = auth()->user()->userID;
+                        $programID = $programDetail->ProgramID;
 
-                    //Add program detail into recommendations database
-                    $data['userID'] = $UserID;
-                    $data['ProgramID'] = $programID;
+                        //Add program detail into recommendations database
+                        $data['userID'] = $UserID;
+                        $data['ProgramID'] = $programID;
 
-                    $newRecommendation = recommendation::create($data);//saving it to DB
+                        $newRecommendation = recommendation::create($data);//saving it to DB
+                    }
                 }
             }
 

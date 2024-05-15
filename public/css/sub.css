@@ -30,6 +30,14 @@ header{
   z-index: 2;
 }
 
+p{
+  position:relative;
+  font-size: 1.2em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 550;
+}
+
 main{
   display: flex;
   flex-direction: column;
