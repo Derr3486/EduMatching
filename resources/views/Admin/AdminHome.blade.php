@@ -12,8 +12,11 @@
     <header>
         <h2 class="Logo">
             <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo">
-            EduMatching</h2>
-            <p>Hi, {{auth()->user()->name}}</p>
+            EduMatching
+        </h2>
+
+        <p>Hi, {{auth()->user()->name}}</p>
+        
         <nav class="navigation">
             <a href="{{ route('AdminHome') }}">Review Feedback</a>
             <a href="{{ route('AdminManageUsers') }}">Manage Users</a>
@@ -31,7 +34,7 @@
         <table id="feedbackTable">
             <thead>
                 <tr>
-                    <th>FeedbackID <span><button onclick="sortTable(0)">&#x25be;</button></span></th>
+                    <th>FeedbackID</th>
                     <th>Ratings (1-5)</th>
                     <th>Description</th>
                     <th>Name of user</th>

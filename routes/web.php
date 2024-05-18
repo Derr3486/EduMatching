@@ -70,8 +70,14 @@ Route::post("/ResultMail",[MatchController::class,'sendMail'])->name('sendMail')
 Route::get("/AdminHome",[Users::class,'AdminHome'])->name('AdminHome');
 Route::get("/AdminManageUsers",[Users::class,'AdminManageUsers'])->name('AdminManageUsers');
 Route::post("/AdminHome/Register",[Users::class,'AdminStore'])->name('admin.store');
+
 Route::get("/AdminManagePrograms",[Users::class,'AdminManagePrograms'])->name('AdminManagePrograms');
+Route::get("/AdminEditPrograms/{Program}/Edit",[Users::class,'AdminEditPrograms'])->name('EditProgram');
+Route::put("/AdminEditPrograms/{Program}/update",[Users::class,'AdminUpdatePrograms'])->name('UpdateProgram');
+
 Route::get("/AdminManagePersonalities",[Users::class,'AdminManagePersonalities'])->name('AdminManagePersonalities');
+Route::get("/AdminEditPersonalities/{Personality}/Edit",[Users::class,'AdminEditPersonalities'])->name('EditPersonality');
+Route::put("/AdminEditPersonalities/{Personality}/update",[Users::class,'AdminUpdatePersonalities'])->name('UpdatePersonality');
 
 //testing
 Route::get("/Test",[Users::class,'test'])->name('test');

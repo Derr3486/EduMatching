@@ -63,8 +63,42 @@ public function AdminStore(Request $request)
         return view('Admin.AdminManagePrograms',['programs'=>$programs]);
     }
 
+    public function AdminEditPrograms(program $Program)
+    {
+        return view('Admin.AdminEditProgram',['Program'=> $Program]);
+    }
+
+    public function AdminUpdatePrograms(program $Program, Request $request)
+    {
+        $data = $request->validate([
+            'ProgramName'=>'required',
+            'ProgramDesc'=>'required',
+        ]);
+
+        $Program->update($data);
+        $programs = program::all();
+        return view('Admin.AdminManagePrograms',['programs'=>$programs]);
+    }
+
     public function AdminManagePersonalities()
     {
+        $personalities = personality::all();
+        return view('Admin.AdminManagePersonalities',['personalities'=>$personalities]);
+    }
+
+    public function AdminEditPersonalities(personality $Personality)
+    {
+        return view('Admin.AdminEditPersonality',['Personality'=> $Personality]);
+    }
+
+    public function AdminUpdatePersonalities(personality $Personality, Request $request)
+    {
+        $data = $request->validate([
+            'Personality'=>'required',
+            'PersonalityDesc'=>'required',
+        ]);
+
+        $Personality->update($data);
         $personalities = personality::all();
         return view('Admin.AdminManagePersonalities',['personalities'=>$personalities]);
     }
@@ -73,11 +107,7 @@ public function AdminStore(Request $request)
 
     public function index()
     {
-        //accessing DB through model(User)
-        //$users = User::all();
-        //return the data
         return view('Index');
-        //,['users'=>$users]);
     }
 
     public function store(Request $request)

@@ -26,36 +26,36 @@
             </form>
         </nav>
     </header>
-    <div class = "Content">
-        <table>
-            <thead>
-                <tr>
-                    <th>Persoanlity</th>
-                    <th>Personality Description</th>
-                    <th>Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($personalities as $personality)
-                    <tr>
-                        <td>{{ $personality->Personality }}</td>
-                        <td>{{ $personality->PersonalityDesc }}</td>
-                        <td><a href="{{route('EditPersonality',['Personality'=> $personality])}}">Edit</a></td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+
+    <main>
+    <h1>Edit Program</h1>
+        <form method="post" action="{{route('UpdateProgram', ['Program' => $Program])}}">
+            @csrf
+            @method('put')
+            <div>
+                <label>Program Name</label>
+                <input type="text" name="ProgramName" value="{{$Program->ProgramName}}"/><br>
+                <label>Program Description</label>
+                <input type="text" name="ProgramDesc" value="{{$Program->ProgramDesc}}"/><br>
+            </div>
+            <div>
+                <input type="submit" value="Update Program">
+            </div>
+
+            <a href='/Test'>back to home</a>
+        </form>
+    </main>
 
     <script>
         window.addEventListener('DOMContentLoaded', () => 
         {
             const headerHeight = document.querySelector('header').offsetHeight;
-            const sections = document.querySelectorAll('.Content');
+            const sections = document.querySelectorAll('main');
             sections.forEach(section => 
             {
                 section.style.marginTop = `${headerHeight}px`;
             });
         });
     </script>
+
 </body>

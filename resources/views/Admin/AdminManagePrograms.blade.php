@@ -43,7 +43,7 @@
                         <td>{{ $program->ProgramName }}</td>
                         <td>{{ $program->ProgramDesc }}</td>
                         <td>{{ $program->personality->Personality }}</td>
-                        <td>#</td>
+                        <td><a href="{{route('EditProgram', ['Program'=> $program])}}">Edit</a></td>
                         <td>#</td>
                     </tr>
                 @endforeach
