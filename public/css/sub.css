@@ -11,8 +11,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: #3d5a80;
+  background: #e3e4e0;
 }
 
 header{
@@ -23,7 +22,7 @@ header{
   padding: 10px 100px;
   padding-left: 25px;
   padding-right: 50px;
-  background: #ee6c4d;
+  background: #ba494b;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,8 +31,8 @@ header{
 
 p{
   position:relative;
-  font-size: 1.2em;
-  color: #fff;
+  font-size: 1em;
+  color: black;
   text-decoration: none;
   font-weight: 550;
 }
@@ -50,25 +49,31 @@ main{
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 500px;
   background: #fff;
-  margin-bottom: 30px;
+}
+@media screen and (max-width: 650px){
+  .Container{
+    height:700px;
+  }
 }
 
 .content{
-  position: absolute;
+  position: absolute; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   left:0;
   top:0;
   width: 100%;
   height: 100%;
-  background-color: rgb(8, 66, 85);
+  background-color: #e3e4e0;
   z-index: 1;
 }
 
-.HI{
-  position:absolute;
-  left:50%;
-  top:50%;
+.Description{
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left;
 }
 
 .Logo{
@@ -97,16 +102,21 @@ main{
 
 .navigation a{
   position:relative;
-  font-size: 1.1em;
+  font-size: 1em;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   margin-left: 30px;
 }
 
+.navigation a.active {
+  color: #cfd2c6;
+  font-size: 1.2em;
+}
+
 .navigation p{
   position:relative;
-  font-size: 1.5em;
+  font-size: 1em;
   color: #fff;
   text-decoration: none;
   font-weight: 550;
@@ -125,7 +135,7 @@ main{
   outline: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1.13em;
+  font-size: 1em;
   color:#fff;
   font-weight: 500;
   margin-left: 40px;
@@ -302,18 +312,24 @@ main{
     text-decoration: underline;
   }
 
+  .StartSection{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
   .StartTestButton{
-    width: 600px;
+    width: 300px;
     height: 70px;
-    background: transparent;
-    border: 2px solid #fff;
+    background: #162938;
+    border: 2px solid #162938;
     outline: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 1.13em;
+    font-size: 1em;
     color:#fff;
     font-weight: 500;
-    transition: .5s;
+    /* transition: .5s; */
   }
 
 .StartTestButton:hover{

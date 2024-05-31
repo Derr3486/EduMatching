@@ -10,11 +10,11 @@
 
 <body>
     <header>
-      <h2 class="Logo">
+      <h4 class="Logo">
         <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo">
-        EduMatching</h2>
+        EduMatching</h4>
       <nav class="navigation">
-        <a href="{{route('user.index')}}">Home</a>
+        <a href="{{route('user.index')}}" class = "active">Home</a>
         <a href="{{route('test1')}}">Start Test</a>
         <a href="{{route('AllProgram')}}">Compare Courses</a>
         <a href="#">Contact</a>
@@ -25,7 +25,17 @@
     <main>
         <div class="Container">
             <div class = "content">
-                <p class="HI">HI</p>
+                <p class="Description">
+                    Welcome to EduMatching!<br>
+                    <br>
+                    This website uses the Holland's RIASEC model to help you find the best undergraduate programs based on your personality and interests. Here's how it works:<br>
+                    <br>
+                    1. Start the Test: Click the button to begin.<br>
+                    2. Complete the Personality Test: Answer a series of questions to determine your personality type.<br>
+                    3. Input Your Favorite Subject: Enter your favorite subject to get personalized program recommendations.<br>
+                    <br>
+                    Let's get started and find the perfect program for you!
+                </p>
             </div><!--end content-->
             <!--Pop up Login-->
             <div class="wrapper">
@@ -110,13 +120,12 @@
                 </div>
             </div><!--End Wrapper-->
         </div><!--end container-->
-
+        
         <!--Start test section-->
-        <button class="StartTestButton">Start Test</button>
-</main><!--end main-->
-
-    <!--Footer-->
-    <div class="Footer"></div>
+        <div class="StartSection">
+            <button onclick="StartTest()" class="StartTestButton">Start Test</button>
+        </div>
+    </main><!--end main-->
 
     <!--ionicons framework js-->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -131,6 +140,10 @@
             const container = document.querySelector('.Container');
             container.style.marginTop = `${headerHeight}px`;
         });
+
+        function StartTest() {
+            window.location.href = "{{route('test1')}}"; // Replace '/nextPage' with the URL of the next page
+        }
 
         const wrapper = document.querySelector('.wrapper');
         const loginLink = document.querySelector('.Login-link');
