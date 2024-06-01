@@ -10,22 +10,31 @@
 
 <body>
     <header>
-        <h2 class="Logo">
-            <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo">
-            EduMatching</h2>
-            <p>Hi, {{auth()->user()->name}}</p>
-        <nav class="navigation">
-            <a href = "{{route('AdminHome')}}">Review Feedback</a>
-            <a href = "{{route('AdminManageUsers')}}">Manage Users</a>
-            <a href = "{{route ('AdminManagePrograms')}}">Manage Programs</a>   
-            <a href = "{{route ('AdminManagePersonalities')}}">Manage Personalities</a>
-            <form action="{{route('user.logout')}}" method="get">
-                <button type="submit" class="btnLogin-popup">
-                    Logout
-                </button>
-            </form>
-        </nav>
+        <h3 class="Logo">
+            <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo"> EduMatching
+        </h3>
+
+        <div class="navigation">
+
+            <input type="checkbox" class="toggle-menu">
+            <div class="hamburger"></div>
+
+            <ul class="menu">
+                <li><a href="{{ route('AdminHome') }}">Review Feedback</a></li>
+                <li><a href="{{ route('AdminManageUsers') }}">Manage Users</a></li>
+                <li><a href="{{ route('AdminManagePrograms') }}" class="active">Manage Programs</a></li>
+                <li><a href="{{ route('AdminManagePersonalities') }}">Manage Personalities</a></li>
+                <li>
+                    <form action="{{ route('user.logout') }}" method="get">
+                        <button type="submit" class="btnLogin-popup">
+                            Logout
+                        </button>
+                    </form> 
+                </li>
+            </ul> 
+        </div>
     </header>
+
     <div class = "Content">
         <table>
             <thead>

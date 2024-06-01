@@ -26,7 +26,7 @@ Route::get("/",[Users::class,'index'])->name('user.index');
 Route::post("/Register",[Users::class,'store'])->name('user.store');
 Route::get("/Registered",[Users::class,'registered'])->name('user.registered');
 Route::post("/",[Users::class,'login'])->name('user.login');
-Route::get("/Login",[Users::class,'loggedin'])->name('user.loggedin');
+// Route::get("/Login",[Users::class,'loggedin'])->name('user.loggedin');
 Route::get("/Index/Invalid",[Users::class,'fail'])->name('user.fail');
 Route::get("/Logout",[Users::class,'logout'])->name('user.logout');
 

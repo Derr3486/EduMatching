@@ -156,7 +156,7 @@ public function AdminStore(Request $request)
             if($user->role == 'user')
             {
                 //direct to User page
-                return redirect()->intended(route('user.loggedin'));
+                return redirect()->intended(route('user.index'));
             }
 
             elseif($user->role == 'admin')
@@ -172,10 +172,10 @@ public function AdminStore(Request $request)
         }
     }
 
-    public function loggedin()
-    {
-        return view('/Login');
-    }
+    // public function loggedin()
+    // {
+    //     return view('/Login');
+    // }
 
     public function fail()
     {

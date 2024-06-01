@@ -17,4 +17,10 @@ class recommendation extends Model
         'userID',
         'ProgramID',
     ];
+
+    //define relationship with program
+    public function program()
+    {
+        return $this->belongsTo(Program::class, 'ProgramID', 'ProgramID');
+    }
 }

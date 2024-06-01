@@ -10,35 +10,34 @@
 
 <body>
     <header>
-        <h2 class="Logo">
+        <h3 class="Logo">
             <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo"> EduMatching
-        </h2>
+        </h3>
 
-        @if(Auth::user())
-            <p>Hi, {{auth()->user()->name}}</p>
-        @endif
+        <div class="navigation">
 
-        <nav class="navigation">
-            @if(Auth::user())
-                <a href="{{route('user.loggedin')}}">Home</a>
+            <input type="checkbox" class="toggle-menu">
+            <div class="hamburger"></div>
+
+            <ul class="menu">
+                <li><a href="{{route('user.index')}}">Home</a></li>
+                <li><a href="{{route('test1')}}" class = "active">Start Test</a></li>
+                <li><a href="{{route('AllProgram')}}">Compare Courses</a></li>
+                <li><a href="#">Contact</a></li>
+
+                @if(Auth::user())
+                <li>
+                    <form action="{{route('user.logout')}}" method="get">
+                        <button type="submit" class="btnLogin-popup">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+                @else
+                    <li><button class="btnLogin-popup" type="button" onclick = "redirectToLogin()">Login</button></li>
+                @endif
+            </ul> 
             
-
-            @else
-            <a href="{{route('user.index')}}">Home</a>
-            @endif
-            <a href="{{route('test1')}}">Start Test</a>
-            <a href="{{route('AllProgram')}}">Compare Courses</a>
-            <a href="#">Contact</a>
-
-            @if(Auth::user())
-                <form action="{{route('user.logout')}}" method="get">
-                    <button type="submit" class="btnLogin-popup">
-                        Logout
-                    </button>
-                </form>
-            @else
-            <button class="btnLogin-popup" type="button" onclick = "redirectToLogin()">Login</button>
-            @endif
             <script>
                 function redirectToLogin() {
                 // Redirect to the login page
@@ -46,11 +45,12 @@
 
                 // Display a notification
                 alert("You will be redirected to the homepage for login.");}
-             </script>
-        </nav>
+            </script>
+        </div>
     </header>
 
-    <div class = "Content">      
+    <div class = "Content">  
+
         @if(session()->has('error'))
             <p style="color: red;">{{ session('error') }}</p>
         @else

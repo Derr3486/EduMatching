@@ -10,35 +10,34 @@
 
 <body>
     <header>
-        <h2 class="Logo">
+        <h3 class="Logo">
             <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo"> EduMatching
-        </h2>
+        </h3>
 
-        @if(Auth::user())
-            <p>Hi, {{auth()->user()->name}}</p>
-        @endif
+        <div class="navigation">
 
-        <nav class="navigation">
-            @if(Auth::user())
-                <a href="{{route('user.loggedin')}}">Home</a>
+            <input type="checkbox" class="toggle-menu">
+            <div class="hamburger"></div>
+
+            <ul class="menu">
+                <li><a href="{{route('user.index')}}">Home</a></li>
+                <li><a href="{{route('test1')}}">Start Test</a></li>
+                <li><a href="{{route('AllProgram')}}" class = "active">Compare Courses</a></li>
+                <li><a href="#">Contact</a></li>
+
+                @if(Auth::user())
+                <li>
+                    <form action="{{route('user.logout')}}" method="get">
+                        <button type="submit" class="btnLogin-popup">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+                @else
+                    <li><button class="btnLogin-popup" type="button" onclick = "redirectToLogin()">Login</button></li>
+                @endif
+            </ul> 
             
-
-            @else
-            <a href="{{route('user.index')}}">Home</a>
-            @endif
-            <a href="{{route('test1')}}">Start Test</a>
-            <a href="{{route('AllProgram')}}">Compare Courses</a>
-            <a href="#">Contact</a>
-
-            @if(Auth::user())
-                <form action="{{route('user.logout')}}" method="get">
-                    <button type="submit" class="btnLogin-popup">
-                        Logout
-                    </button>
-                </form>
-            @else
-            <button class="btnLogin-popup" type="button" onclick = "redirectToLogin()">Login</button>
-            @endif
             <script>
                 function redirectToLogin() {
                 // Redirect to the login page
@@ -46,12 +45,12 @@
 
                 // Display a notification
                 alert("You will be redirected to the homepage for login.");}
-             </script>
-        </nav>
+            </script>
+        </div>
     </header>
 
     <div class = "Content">
-        <h1 style="text-align:center;">All Programs</h1>
+        <h1 style="text-align:center; padding-top: 20px;">All Programs</h1>
         @if(Auth::user())
             <div style="text-align:center;">
                 <button onclick="nextPage()">Feedback</button>
@@ -75,7 +74,7 @@
         <form id = "selectProgram" action = "{{route('compare')}}" method = "post">
             @csrf
             <div style="margin-top:15px;">
-                <table border="1">
+                <table>
                     <thead>
                         <tr>
                             <th>Number</th>
@@ -102,8 +101,8 @@
 
                 <div style = "margin-top:10px" id="selectionLimitMessage"></div>
                 <br>
-                <div style ="margin-top: 12px;">
-                    <input type="submit" value="View Selected Programs">   
+                <div style ="margin-bottom: 30px;">
+                    <button type = "submit">View Selected Programs</button>
                 </div>
             </div>
         </form>
@@ -125,6 +124,7 @@
             window.location.href = "{{route('Feedback')}}";
         }
 
+        //limit selections to 2
         document.addEventListener('DOMContentLoaded', function() 
         {
             var form = document.getElementById('selectProgram');
@@ -154,7 +154,9 @@
                     // Update the selection limit message
                     if (checkedCount === maxChecked) 
                     {
+                        // alert("You have reached the maximum selection limit.");
                         selectionLimitMessage.textContent = 'You have reached the maximum selection limit.';
+                        alert("You have reached the maximum selection limit.");
                     } 
                     else 
                     {

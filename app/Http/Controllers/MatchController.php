@@ -135,14 +135,15 @@ class MatchController extends Controller
 
     public function sendMail(Request $request)
     {
-        $program = $request->session()->get('programDetails');
-
         // Get the logged-in user's detail
         $userEmail = auth()->user()->email;
         $userName = auth()->user()->name;
+        $userID = auth()->user()->userID;
+
+        $recommendations = recommendation::where('userID', $userID)->get();
 
         // Send the email to the user
-        Mail::to($userEmail)->send(new ResultMail($program, $userName));
+        Mail::to($userEmail)->send(new ResultMail($recommendations, $userName));
 
         //can add in to check if email sent or not
         return redirect(route('AllProgram'))->with("success", "Email Sent!"); 

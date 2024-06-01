@@ -26,6 +26,16 @@
                 <li><a href="#">Contact</a></li>
 
                 <li><button class="btnLogin-popup" type="button" onclick = "redirectToLogin()">Login</button></li>
+
+                @if(Auth::user())
+                <li>
+                    <form action="{{route('user.logout')}}" method="get">
+                        <button type="submit" class="btnLogin-popup">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+                @endif
             </ul> 
             
             <script>

@@ -13,16 +13,22 @@ class program extends Model
     
     use HasFactory;
 
-    // Define the relationship with Personality
-    public function personality()
-    {
-        return $this->belongsTo(personality::class, 'PersonalityID', 'PersonalityID');
-    }
-
     protected $fillable = 
     [
         'ProgramName',
         'ProgramDesc',
         'PersonalityID'
     ];
+
+    // Define the relationship with Personality
+    public function personality()
+    {
+        return $this->belongsTo(personality::class, 'PersonalityID', 'PersonalityID');
+    }
+    
+    //define relationship with recommendation
+    public function recommendation()
+    {
+        return $this->hasOne(Recommendation::class, 'ProgramID', 'ProgramID');
+    }
 }

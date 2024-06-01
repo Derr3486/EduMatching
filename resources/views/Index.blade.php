@@ -10,18 +10,35 @@
 
 <body>
     <header>
-      <h4 class="Logo">
-        <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo">
-        EduMatching</h4>
-      <nav class="navigation">
-        <a href="{{route('user.index')}}" class = "active">Home</a>
-        <a href="{{route('test1')}}">Start Test</a>
-        <a href="{{route('AllProgram')}}">Compare Courses</a>
-        <a href="#">Contact</a>
-        <button class="btnLogin-popup" type="button">Login</button>
-      </nav>
-    </header>
+        <h3 class="Logo">
+            <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo"> EduMatching
+        </h3>
 
+        <div class="navigation">
+
+            <input type="checkbox" class="toggle-menu">
+            <div class="hamburger"></div>
+
+            <ul class="menu">
+                <li><a href="{{route('user.index')}}">Home</a></li>
+                <li><a href="{{route('test1')}}">Start Test</a></li>
+                <li><a href="{{route('AllProgram')}}">Compare Courses</a></li>
+                <li><a href="#">Contact</a></li>
+                @if(Auth::user())
+                <li>
+                    <form action="{{route('user.logout')}}" method="get">
+                        <button type="submit" class="btnLogin-popup">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+                @else
+                    <li><button class="btnLogin-popup" type="button">Login</button></li>
+                @endif
+            </ul> 
+        </div>
+    </header>
+    
     <main>
         <div class="Container">
             <div class = "content">

@@ -13,15 +13,15 @@ class ResultMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $program;
+    public $recommendations;
     public $userName;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($program, $userName)
+    public function __construct($recommendations, $userName)
     {
-        $this->program = $program;
+        $this->recommendations = $recommendations;
         $this->userName = $userName;
     }
 
