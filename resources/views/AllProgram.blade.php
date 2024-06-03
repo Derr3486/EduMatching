@@ -23,7 +23,6 @@
                 <li><a href="{{route('user.index')}}">Home</a></li>
                 <li><a href="{{route('test1')}}">Start Test</a></li>
                 <li><a href="{{route('AllProgram')}}" class = "active">Compare Courses</a></li>
-                <li><a href="#">Contact</a></li>
 
                 @if(Auth::user())
                 <li>
@@ -50,12 +49,20 @@
     </header>
 
     <div class = "Content">
-        <h1 style="text-align:center; padding-top: 20px;">All Programs</h1>
-        @if(Auth::user())
-            <div style="text-align:center;">
-                <button onclick="nextPage()">Feedback</button>
-            <div>
-        @endif
+            <h1 style="text-align:center; padding-top: 20px;">All Programs</h1>
+            <div id="selectionLimitMessage"></div>
+            
+            <div class="below">
+                @if(Auth::user())
+                    <div>
+                        <button onclick="nextPage()">Feedback</button>
+                    </div>
+                @endif
+                
+                <div>
+                    <button onclick="submitForm()">View Selected Programs</button>
+                </div>
+            </div>
 
         <div>
             @if(session('error'))
@@ -92,18 +99,13 @@
                                 <td>{{ $program->ProgramDesc }}</td>
                                 <td>{{ $program->personality->Personality }}</td>
                                 <td>
-                                    <input type="checkbox" name="selectedPrograms[]" value="{{ $program->ProgramID }}">
+                                    <input type="checkbox" name="selectedPrograms[]" value="{{ $program->ProgramID }}" class="program-checkbox">
+                                    <!-- <input type="checkbox" name="selectedPrograms[]" value="{{ $program->ProgramID }}"> -->
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-
-                <div style = "margin-top:10px" id="selectionLimitMessage"></div>
-                <br>
-                <div style ="margin-bottom: 30px;">
-                    <button type = "submit">View Selected Programs</button>
-                </div>
             </div>
         </form>
     </div>
@@ -165,5 +167,23 @@
                 });
             });
         });
+
+        function submitForm() {
+            const checkboxes = document.querySelectorAll('.program-checkbox');
+            let isChecked = false;
+            
+            // Check if at least one checkbox is checked
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    isChecked = true;
+                }
+            });
+
+            if (isChecked) {
+                document.getElementById('selectProgram').submit();
+            } else {
+                alert('Please select at least one program.');
+            }
+        }
     </script>
 </body>

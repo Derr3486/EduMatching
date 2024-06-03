@@ -23,7 +23,6 @@
                 <li><a href="{{route('user.index')}}">Home</a></li>
                 <li><a href="{{route('test1')}}" class = "active">Start Test</a></li>
                 <li><a href="{{route('AllProgram')}}">Compare Courses</a></li>
-                <li><a href="#">Contact</a></li>
 
                 @if(Auth::user())
                 <li>

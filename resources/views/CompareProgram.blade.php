@@ -23,7 +23,6 @@
                 <li><a href="{{route('user.index')}}">Home</a></li>
                 <li><a href="{{route('test1')}}">Start Test</a></li>
                 <li><a href="{{route('AllProgram')}}"  class = "active">Compare Courses</a></li>
-                <li><a href="#">Contact</a></li>
 
                 @if(Auth::user())
                 <li>
@@ -50,27 +49,20 @@
     </header>
 
     <div class = "Content">
-        <h2 style="padding-top: 15px; text-align:center;">Compare Programs</h2>
-        <table>
-                <thead>
-                    <tr>
-                        <th>Program Name</th>
-                        <th>Program Description</th>
-                        <th>Personality</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($selectedPrograms as $program)
-                        <tr>
-                            <td>{{ $program->ProgramName }}</td>
-                            <td>{{ $program->ProgramDesc }}</td>
-                            <td>{{ $program->personality->Personality }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-            <button onclick = "back()">Back to All Programs</button>
+        <!-- <h2 style="padding-top: 15px; text-align:center;">Compare Programs</h2> -->
+        <div class="program">
+            <h2>Compare Programs</h2>
+            <ul class = "programList">
+                @foreach($selectedPrograms as $program)
+                    <li class = "programItems">
+                        <h4 style = "margin-bottom: 30px; text-align:left;">{{ $program->ProgramName }}</h4>
+                        <h5 style ="text-align:justify">{{ $program->ProgramDesc }}</h5>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+            
+        <button onclick = "back()">Back to All Programs</button>
     </div>
 
     <script>

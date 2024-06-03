@@ -91,6 +91,46 @@ p{
   align-items: center;
 }
 
+/* for all programs */
+.below{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/* for comparing courses */
+.program
+{
+  padding-top:20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:5px 40px;
+}
+
+.programList
+{
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap; /*need to confirm what this does*/
+  list-style-type: none; 
+  padding: 0;
+}
+
+.programItems
+{
+  width: 50%; 
+  padding: 50px 40px;
+}
+
+form{
+  /* margin-top: 20px;  */
+  display: flex; 
+  flex-direction: column;  
+  align-items:center;
+}
+
 /*For inputting favourite subject*/
 .title
 {
@@ -333,4 +373,16 @@ button:hover{
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  .programItems
+  {
+    width: 100%; 
+    padding: 50px 40px;
+  }
+
+  /* for all programs */
+  .below{
+  display: flex;
+  flex-direction: column;
+}
 }
