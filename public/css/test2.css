@@ -149,25 +149,20 @@ form{
   font-weight: bold;
   font-size: 17px;
 }
-.Subject input[type="text"] {
+
+select {
   width: 100%;
   padding: 10px;
-  border: 2px solid #787a7b;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-.Subject input[type="text"]:hover
-{
-  border-color: black;
-}
-
-/* Add focus effect */
-.Subject input[type="text"]:focus {
+  border-radius: 6px;
+  border: 2px solid #e17218;
   outline: none;
-  border-color: #ee6c4d;
-  box-shadow: 0 0 5px #ee6c4d;
+  font-size: 1em;
+  background: #fff;
+  transition: border-color 0.3s;
+}
+
+select:focus {
+  border-color: #ba494b;
 }
 
 /*for tables*/
@@ -384,5 +379,10 @@ button:hover{
   .below{
   display: flex;
   flex-direction: column;
+}
+
+/* for tables */
+table {
+  font-size: 0.3em;
 }
 }

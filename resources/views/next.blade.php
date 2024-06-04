@@ -54,8 +54,25 @@
         <form method="post" action="{{route('catch')}}">
             @csrf
             <div class="Subject">
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="Subject" placeholder="Enter subject...">
+                <label>Subject:</label>
+                    <select name="Favourite Subject">
+                    <option value="" disabled selected>Select your favourite subject...</option>
+
+                    <option name="Subject" value="Science">Science</option>
+                    <option name="Subject" value="Biology">Biology</option>
+                    <option name="Subject" value="Physics">Physics</option>
+                    <option name="Subject" value="Chemistry">Chemistry</option>
+                    <option name="Subject" value="Mathematics">Mathematics</option>
+                    <option name="Subject" value="General Studies">General Studies</option>
+                    <option name="Subject" value="Communication Skills">Communication Skills</option>
+                    <option name="Subject" value="ICT">ICT</option>
+                    <option name="Subject" value="Economics">Economics</option>
+                    <option name="Subject" value="Accounting">Accounting</option>
+                    <option name="Subject" value="Language">Language</option>
+                    <option name="Subject" value="Isalmic">Isalmic Study</option>
+                    <option name="Subject" value="Arts">Arts</option>
+                    <option name="Subject" value="">N/A</option>
+                </select>
             </div>
             <br>
             <button type="submit">Next</button>

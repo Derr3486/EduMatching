@@ -34,7 +34,7 @@ class MatchController extends Controller
         // If recommendations found, proceed to fetch more details from the 'program' model
         if ($recommendations->isNotEmpty()) 
         {
-            // Initialize an array to store program details for each recommendation
+            // array to store program details for each recommendation
             $programDetails = [];
 
             // Loop through each recommendation to fetch additional details from the 'program' model
@@ -67,13 +67,66 @@ class MatchController extends Controller
             if (!empty($programDetails)) 
             {
                 // Store the selected personality and program details in the session
-                $request->session()->put('programDetails', $programDetails);
+                // $request->session()->put('programDetails', $programDetails);
                 // Pass the recommendations and program details to the view
                 return view('recommendation', compact('programDetails'));
             }
+        }else{
+            $recommendations = program_match::where('Personality', $personality)
+            ->get();
+
+            $programDetails = [];
+
+            foreach ($recommendations as $recommendation) 
+            {
+                // Fetch program details based on the recommendation
+                $programDetail = Program::where('ProgramName', $recommendation->Program)->first();
+
+                if ($programDetail) // If program details are found
+                {
+                    // Check if this ProgramID is already in the array
+                    $programID = $programDetail->ProgramID;
+                    $programIDs = array_column($programDetails, 'ProgramID');
+
+                    if (!in_array($programID, $programIDs)) 
+                    {
+                        // Add program details to the array if not already present
+                        $programDetails[] = $programDetail;
+
+                        if(Auth::check())
+                        {
+                            // Getting userID and programID
+                            $UserID = auth()->user()->userID;
+
+                            // Add program detail into recommendations database
+                            $data['userID'] = $UserID;
+                            $data['ProgramID'] = $programID;
+
+                            $newRecommendation = recommendation::create($data); // Saving it to DB
+                        }
+                    }
+
+                    // if(Auth::check())
+                    // {
+                    //     //Getting userID and programID
+                    //     $UserID = auth()->user()->userID;
+                    //     $programID = $programDetail->ProgramID;
+
+                    //     //Add program detail into recommendations database
+                    //     $data['userID'] = $UserID;
+                    //     $data['ProgramID'] = $programID;
+
+                    //     $newRecommendation = recommendation::create($data);//saving it to DB
+                    // }
+                }
+                if (count($programDetails) >= 3) {
+                    break;
+                }
+            }
+            return view('recommendation', compact('programDetails'));
         }
 
-        return redirect()->route('recommendation')->with('error', 'Recommendations not found or program details not available.');
+        //return redirect()->route('recommendation')->with('error', 'Recommendations not found or program details not available.');
     }
 
     public function recommendation()

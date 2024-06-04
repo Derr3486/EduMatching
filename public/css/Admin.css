@@ -319,6 +319,11 @@ input {
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  /* for tables */
+  table {
+  font-size: 0.3em;
+  }
 }
 
 

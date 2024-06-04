@@ -47,7 +47,7 @@
         </div>
     </header>
 
-    <div style="display: flex; align-items: center; flex-direction: column;">
+    <div class="Container" style="padding-top: 20px; display: flex; align-items: center; flex-direction: column;">
         <h3>Registered Sucessfully!</h3><br>
         <form action="/" method="GET">
             <button type="submit" class="StartTestButton">
@@ -55,4 +55,13 @@
             </button>
         </form>
     </div>
+
+    <script>
+        //dynamically adjust content top margin
+        window.addEventListener('DOMContentLoaded', () => {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const container = document.querySelector('.Container');
+            container.style.marginTop = `${headerHeight}px`;
+        });
+    </script>
 </body>
