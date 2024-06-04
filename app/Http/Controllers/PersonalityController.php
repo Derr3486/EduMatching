@@ -43,10 +43,10 @@ class PersonalityController extends Controller
                 return view('recommendation', compact('programDetails'));
             } else {
             // direct to personality test page if no recommendations found
-                return view('test1');
+                return view('Test1');
             }
         } else{
-            return view('test1');
+            return view('Test1');
         }
     }
 
@@ -87,7 +87,7 @@ class PersonalityController extends Controller
         $request->session()->put('personality', $personality);
 
         // Display result
-        return view('result', ['personality' => $personality]);
+        return view('Result', ['personality' => $personality]);
     }
     
     public function result()

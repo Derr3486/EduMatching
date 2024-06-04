@@ -123,7 +123,7 @@ class MatchController extends Controller
                     break;
                 }
             }
-            return view('recommendation', compact('programDetails'));
+            return view('Recommendation', compact('programDetails'));
         }
 
         //return redirect()->route('recommendation')->with('error', 'Recommendations not found or program details not available.');
@@ -131,7 +131,7 @@ class MatchController extends Controller
 
     public function recommendation()
     {
-        return view ('recommendation');
+        return view ('Recommendation');
     }
 
     public function AllProgram()
