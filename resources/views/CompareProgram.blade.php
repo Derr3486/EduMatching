@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="images/Logo.jpeg">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/Logo.jpeg') }}">
     <title>EduMatching</title>
     <link href="{{ asset('css/test2.css') }}" rel="stylesheet">
 </head>
@@ -11,7 +11,7 @@
 <body>
     <header>
         <h3 class="Logo">
-            <img class="Logo-1" src="images/Logo.jpeg" width="60" height="60" alt="Logo"> EduMatching
+            <img class="Logo-1" src="{{ asset('images/Logo.jpeg') }}" width="60" height="60" alt="Logo"> EduMatching
         </h3>
 
         <div class="navigation">

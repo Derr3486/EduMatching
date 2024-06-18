@@ -49,7 +49,7 @@
     </header>
 
     <div class = "Content">
-            <h1 style="text-align:center; padding-top: 20px;">All Programs</h1>
+            <h1 style="text-align:center; padding-top: 20px;">Compare Programs</h1>
             <div id="selectionLimitMessage"></div>
             
             <div class="below">
@@ -100,7 +100,6 @@
                                 <td>{{ $program->personality->Personality }}</td>
                                 <td>
                                     <input type="checkbox" name="selectedPrograms[]" value="{{ $program->ProgramID }}" class="program-checkbox">
-                                    <!-- <input type="checkbox" name="selectedPrograms[]" value="{{ $program->ProgramID }}"> -->
                                 </td>
                             </tr>
                         @endforeach
@@ -126,45 +125,17 @@
             window.location.href = "{{route('Feedback')}}";
         }
 
-        //limit selections to 2
-        document.addEventListener('DOMContentLoaded', function() 
-        {
-            var form = document.getElementById('selectProgram');
-            var checkboxes = form.querySelectorAll('input[type="checkbox"]');
-            var maxChecked = 2;
-            var checkedCount = 0;
-            var selectionLimitMessage = document.getElementById('selectionLimitMessage');
+        //limiting selections to 2 only
+        const checkboxes = document.querySelectorAll('.program-checkbox');
+        const maxSelections = 2;
 
-            checkboxes.forEach(function(checkbox) 
-            {
-                checkbox.addEventListener('change', function() 
-                {
-                    if (this.checked) 
-                    {
-                        checkedCount++;
-                        if (checkedCount > maxChecked) 
-                        {
-                            this.checked = false;
-                            checkedCount--;
-                        }
-                    } 
-                    else 
-                    {
-                        checkedCount--;
-                    }
-
-                    // Update the selection limit message
-                    if (checkedCount === maxChecked) 
-                    {
-                        // alert("You have reached the maximum selection limit.");
-                        selectionLimitMessage.textContent = 'You have reached the maximum selection limit.';
-                        alert("You have reached the maximum selection limit.");
-                    } 
-                    else 
-                    {
-                        selectionLimitMessage.textContent = '';
-                    }
-                });
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const selectedCount = document.querySelectorAll('.program-checkbox:checked').length;
+                if (selectedCount > maxSelections) {
+                    checkbox.checked = false; // Uncheck the checkbox
+                    alert('You can select up to ' + maxSelections + ' programs only.');
+                }
             });
         });
 
@@ -179,7 +150,7 @@
                 }
             });
 
-            if (isChecked) {
+            if (isChecked) {    
                 document.getElementById('selectProgram').submit();
             } else {
                 alert('Please select at least one program.');

@@ -80,7 +80,6 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
   color:#fff;
   user-select: none;
 }
@@ -458,5 +457,5 @@ main{
       margin-top: 40px;
       margin-left: 40px;
       transition: .5s;
-    } 
+    }
 }

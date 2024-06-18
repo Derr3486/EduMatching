@@ -94,27 +94,4 @@ class PersonalityController extends Controller
     {
         return view('Result');
     }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
-    public function home()
-    {
-        return view('home');
-    }
-
-    public function create()
-    {
-        return view('create');
-    }
-
-    public function store(Request $request)
-    {     
-        $data = $request->validate([
-            'ProgramName'=>'required',
-            'ProgramDesc'=>'required',
-            'PersonalityID'=>'required',
-        ]);
-
-        $newProgram = program::create($data);
-        return redirect(route('home'))->with('success', 'Created');
-    }
 }
