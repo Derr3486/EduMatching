@@ -42,7 +42,6 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th>Action</th>
             </tr>
             @foreach($users as $user)
             <tr>
@@ -50,7 +49,6 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->role }}</td>
-                <td>#</td>
             </tr>
             @endforeach
         </table>
@@ -67,7 +65,7 @@
                 <label>Password</label>
                 <input type = "password" name = "password"><br>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Add Admin</button>
             </form>
         </div> <!--end division for form-->
     </div>

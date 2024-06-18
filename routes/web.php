@@ -53,6 +53,9 @@ Route::post("/AdminHome/Register",[Users::class,'AdminStore'])->name('admin.stor
 Route::get("/AdminManagePrograms",[Users::class,'AdminManagePrograms'])->name('AdminManagePrograms');
 Route::get("/AdminEditPrograms/{Program}/Edit",[Users::class,'AdminEditPrograms'])->name('EditProgram');
 Route::put("/AdminEditPrograms/{Program}/update",[Users::class,'AdminUpdatePrograms'])->name('UpdateProgram');
+Route::delete('/programs/{Program}', [ProgramController::class, 'deleteProgram'])->name('DeleteProgram');
+Route::get("/AdminAddProgram",[ProgramController::class,'AddProgram'])->name('AddProgram');
+Route::post("/AdminAddProgram/store",[ProgramController::class,'StoreProgram'])->name('StoreProgram');
 
 Route::get("/AdminManagePersonalities",[Users::class,'AdminManagePersonalities'])->name('AdminManagePersonalities');
 Route::get("/AdminEditPersonalities/{Personality}/Edit",[Users::class,'AdminEditPersonalities'])->name('EditPersonality');

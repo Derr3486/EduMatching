@@ -37,48 +37,28 @@
 
     <div class = "Content">
 
-        @if(session('success'))
+        @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
-        @if(session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
+        <form id="AddProgram" method="post" action="{{route('StoreProgram')}}">
+            @csrf
+            <label>Program Name</label>
+            <input type = "text" name = "ProgramName"> <br>
 
-        <button onclick="AddProgram()">Add Program</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Program Name</th>
-                    <th>Program Description</th>
-                    <th>Personality</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($programs as $program)
-                    <tr>
-                        <td>{{ $program->ProgramName }}</td>
-                        <td>{{ $program->ProgramDesc }}</td>
-                        <td>{{ $program->personality->Personality }}</td>
-                        <td><a href="{{route('EditProgram', ['Program'=> $program])}}">Edit</a></td>
-                        <td>
-                            <form action="{{ route('DeleteProgram', ['Program' => $program->ProgramID]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this program?');">
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" value="Delete">
-                                <!-- <button type="submit">Delete</button> -->
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+            <label>Program Description</label>
+            <input type = "text" name = "ProgramDesc"><br>
+
+            <label>Relative Personality ID</label>
+            <input type = "text" name = "PersonalityID"><br>
+
+            <!-- <button type="submit">Add Program</button><br> -->
+        </form>
+        <button onclick="submit()">Add Program</button>
+        <button onclick = "back()">Back to Manage Program</button>
+        
     </div>
 
     <script>
@@ -91,10 +71,15 @@
                 section.style.marginTop = `${headerHeight}px`;
             });
         });
-        
-        function AddProgram()
+
+        function back()
         {
-            window.location.href = '{{ route('AddProgram') }}';
+            window.location.href = '{{ route('AdminManagePrograms') }}';
+        }
+
+        function submit()
+        {
+            document.getElementById('AddProgram').submit();
         }
     </script>
 </body>
